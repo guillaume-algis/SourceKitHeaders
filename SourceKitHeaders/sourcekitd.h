@@ -67,7 +67,20 @@ xpc_object_t sourcekitd_request_array_create(const xpc_object_t *objects, size_t
  */
 void sourcekitd_request_array_set_int64(xpc_object_t xarray, size_t index, int64_t value);
 
-SKH_UNKNOW_TYPE sourcekitd_request_array_set_string(SKH_UNKNOW_TYPE);
+/**
+ Inserts a C string into an array.
+ 
+ @param xarray The array object which is to be manipulated.
+ @param index The index at which to insert the value. This value must lie within the index space of the array
+        (0 to N-1 inclusive, where N is the count of the array) or be XPC_ARRAY_APPEND. If the index is outside that
+        range, the behavior is undefined.
+ @param string The C string to insert. After calling this method, the XPC object corresponding to the primitive value
+        inserted may be safely retrieved with xpc_array_get_value().
+
+ SKH notes: This is a logicless wrapper around xpc_array_set_string.
+ */
+void sourcekitd_request_array_set_string(xpc_object_t xarray, size_t index, const char *string);
+
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_stringbuf(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_uid(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_value(SKH_UNKNOW_TYPE);

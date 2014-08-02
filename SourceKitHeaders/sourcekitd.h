@@ -17,17 +17,34 @@
 void sourcekitd_cancel_request(void);
 
 /**
- Start a new SourceKit session.
+ Starts a new SourceKit session.
 
- - Start LLVM
- - Enable logging
- - Create an XPC connection to com.apple.SourceKitService
- - Register an XPC event handler
- - Resume the XPC connection
+ - Starts LLVM
+ - Enables logging
+ - Creates an XPC connection to com.apple.SourceKitService
+ - Registers an XPC event handler
+ - Resumes the XPC connection
  */
 void sourcekitd_initialize(void);
 
-SKH_UNKNOW_TYPE sourcekitd_request_array_create(SKH_UNKNOW_TYPE);
+/**
+ Creates an XPC object representing an array of XPC objects.
+
+ @param objects An array of XPC objects which is to be boxed. The order of this array is preserved in the object. If
+        this array contains a NULL value, the behavior is undefined. This parameter may be NULL only if the
+        count is 0.
+ @param count The number of objects in the given array. If the number passed is less than the actual number of values
+        in the array, only the specified number of items are inserted into the resulting array. If the number
+        passed is more than the the actual number of values, the behavior is undefined.
+ @return A new array object.
+
+ This array must be contiguous and cannot contain any NULL values. If you wish to insert the equivalent of a NULL
+ value, you may use the result of xpc_null_create.
+
+ SKH notes: This is a logicless wrapper around xpc_array_create.
+ */
+xpc_object_t sourcekitd_request_array_create(const xpc_object_t *objects, size_t count);
+
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_int64(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_string(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_stringbuf(SKH_UNKNOW_TYPE);

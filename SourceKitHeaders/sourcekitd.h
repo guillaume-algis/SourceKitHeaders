@@ -11,6 +11,15 @@
 #define SKH_UNKNOW_TYPE void
 
 /**
+ Note that some sourcekitd functions are merely wrappers around XPC functions. They have been documented as such, and
+ the official Apple documentation for the wrapped function have been copied here.
+ When in doubt, consult the official and up to date documentation for XPC, either at developer.apple.com[1] or directly
+ in the `xpc.h` header file installed on your system.
+ 
+ [1]: https://developer.apple.com/library/mac/documentation/System/Reference/xpc_header_reference/Reference/reference.html
+ */
+
+/**
  Does nothing ?
  */
 void sourcekitd_cancel_request(void);

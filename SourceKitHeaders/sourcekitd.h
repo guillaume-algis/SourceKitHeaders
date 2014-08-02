@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <xpc/xpc.h>
+
 #define SKH_UNKNOW_TYPE void
 
 /**

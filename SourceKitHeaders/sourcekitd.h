@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Guillaume Algis. All rights reserved.
 //
 
-#ifndef SourceKitHeaders_sourcekitd_h
-#define SourceKitHeaders_sourcekitd_h
+#pragma once
 
 #define SKH_UNKNOW_TYPE void
 
@@ -105,5 +104,3 @@ SKH_UNKNOW_TYPE sourcekitd_variant_int64_get_value(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_variant_string_get_length(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_variant_string_get_ptr(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_variant_uid_get_value(SKH_UNKNOW_TYPE);
-
-#endif

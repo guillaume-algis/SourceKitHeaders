@@ -10,7 +10,7 @@
 
 #include <xpc/xpc.h>
 
-#define SKH_UNKNOW_TYPE void
+#define SKH_UNKNOW_TYPE void*
 
 /**
  Note that some sourcekitd functions are merely wrappers around XPC functions. They have been documented as such, and
@@ -83,7 +83,9 @@ void sourcekitd_request_array_set_int64(xpc_object_t xarray, size_t index, int64
  */
 void sourcekitd_request_array_set_string(xpc_object_t xarray, size_t index, const char *string);
 
-SKH_UNKNOW_TYPE sourcekitd_request_array_set_stringbuf(SKH_UNKNOW_TYPE);
+void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKH_UNKNOW_TYPE);
+
+
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_uid(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_array_set_value(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_create_from_yaml(SKH_UNKNOW_TYPE);

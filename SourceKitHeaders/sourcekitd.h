@@ -83,6 +83,9 @@ void sourcekitd_request_array_set_int64(xpc_object_t xarray, size_t index, int64
  */
 void sourcekitd_request_array_set_string(xpc_object_t xarray, size_t index, const char *string);
 
+/**
+ Incomplete header. Do not use.
+ */
 void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKH_UNKNOW_TYPE);
 
 

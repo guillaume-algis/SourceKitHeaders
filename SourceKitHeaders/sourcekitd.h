@@ -22,11 +22,6 @@
  */
 
 /**
- Does nothing ?
- */
-void sourcekitd_cancel_request(void);
-
-/**
  Starts a new SourceKit session.
 
  - Starts LLVM
@@ -113,10 +108,6 @@ SKH_UNKNOW_TYPE sourcekitd_response_error_get_description(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_error_get_kind(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_get_value(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_is_error(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_send_request(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_send_request_sync(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_set_interrupted_connection_handler(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_set_notification_handler(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_shutdown(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_uid_get_from_buf(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_uid_get_from_cstr(SKH_UNKNOW_TYPE);

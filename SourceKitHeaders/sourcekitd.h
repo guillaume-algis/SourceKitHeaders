@@ -10,6 +10,8 @@
 
 #define SKH_UNKNOW_TYPE void*
 
+SKH_UNKNOW_TYPE sourcekitd_cancel_request(SKH_UNKNOW_TYPE);
+
 /**
  Starts a new SourceKit session.
 
@@ -53,6 +55,7 @@ void sourcekitd_request_array_set_value(xpc_object_t xarray, size_t index, xpc_o
 
 
 SKH_UNKNOW_TYPE sourcekitd_request_create_from_yaml(SKH_UNKNOW_TYPE);
+
 SKH_UNKNOW_TYPE sourcekitd_request_description_copy(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_request_description_dump(SKH_UNKNOW_TYPE);
 
@@ -102,6 +105,13 @@ SKH_UNKNOW_TYPE sourcekitd_response_error_get_description(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_error_get_kind(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_get_value(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_is_error(SKH_UNKNOW_TYPE);
+
+SKH_UNKNOW_TYPE sourcekitd_send_request(SKH_UNKNOW_TYPE);
+SKH_UNKNOW_TYPE sourcekitd_send_request_sync(SKH_UNKNOW_TYPE);
+
+SKH_UNKNOW_TYPE sourcekitd_set_interrupted_connection_handler(SKH_UNKNOW_TYPE);
+SKH_UNKNOW_TYPE sourcekitd_set_notification_handler(SKH_UNKNOW_TYPE);
+
 /**
  Ends the current SourceKit session.
 

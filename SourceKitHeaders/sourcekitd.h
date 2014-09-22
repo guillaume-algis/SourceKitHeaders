@@ -1,7 +1,7 @@
 //
 //  sourcekitd.h
 //
-// All rights reserved to Apple I guess?
+// All rights reserved by Apple I guess?
 //
 
 #pragma once
@@ -102,7 +102,16 @@ SKH_UNKNOW_TYPE sourcekitd_response_error_get_description(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_error_get_kind(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_get_value(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_response_is_error(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_shutdown(SKH_UNKNOW_TYPE);
+/**
+ Ends the current SourceKit session.
+
+ - Ends logging
+ - Stops LLVM
+ - Cleanup memory
+ 
+ @return 0 if llvm exited nicelly, else a non-zero value (to be determined).
+ */
+int sourcekitd_shutdown(void);
 
 SKH_UNKNOW_TYPE sourcekitd_uid_get_from_buf(SKH_UNKNOW_TYPE);
 SKH_UNKNOW_TYPE sourcekitd_uid_get_from_cstr(SKH_UNKNOW_TYPE);

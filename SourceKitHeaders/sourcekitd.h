@@ -10,7 +10,10 @@
 
 #define SKH_UNKNOW_TYPE void*
 
-SKH_UNKNOW_TYPE sourcekitd_cancel_request(SKH_UNKNOW_TYPE);
+/**
+ Does nothing... ?!
+ */
+void sourcekitd_cancel_request(void);
 
 /**
  Starts a new SourceKit session.

@@ -8,7 +8,7 @@
 
 #include <xpc/xpc.h>
 
-#define SKH_UNKNOW_TYPE void*
+#define SKD_UNKNOW_TYPE void*
 
 /**
  Does nothing... ?!
@@ -44,7 +44,7 @@ void sourcekitd_request_array_set_string(xpc_object_t xarray, size_t index, cons
 /**
  Incomplete header. Do not use.
  */
-void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKH_UNKNOW_TYPE);
+void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKD_UNKNOW_TYPE);
 
 /**
  Logicless wrapper around xpc_array_set_uint64.
@@ -57,17 +57,17 @@ void sourcekitd_request_array_set_uid(xpc_object_t xarray, size_t index, uint64_
 void sourcekitd_request_array_set_value(xpc_object_t xarray, size_t index, xpc_object_t value);
 
 
-SKH_UNKNOW_TYPE sourcekitd_request_create_from_yaml(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_create_from_yaml(SKD_UNKNOW_TYPE);
 
-SKH_UNKNOW_TYPE sourcekitd_request_description_copy(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_description_dump(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_description_copy(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_description_dump(SKD_UNKNOW_TYPE);
 
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_create(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_set_int64(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_set_string(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_set_stringbuf(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_set_uid(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_request_dictionary_set_value(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_create(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_int64(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_string(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_stringbuf(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_uid(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_value(SKD_UNKNOW_TYPE);
 
 /**
  Logicless wrapper around xpc_int64_create.
@@ -95,25 +95,25 @@ xpc_object_t sourcekitd_request_string_create(const char *string);
 xpc_object_t sourcekitd_request_uid_create(uint64_t value);
 
 
-SKH_UNKNOW_TYPE sourcekitd_response_description_copy(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_response_description_dump(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_response_description_dump_filedesc(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_description_copy(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_description_dump(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_description_dump_filedesc(SKD_UNKNOW_TYPE);
 
 /**
  Logicless wrapper around xpc_release.
  */
 void sourcekitd_response_dispose(xpc_object_t object);
 
-SKH_UNKNOW_TYPE sourcekitd_response_error_get_description(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_response_error_get_kind(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_response_get_value(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_response_is_error(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_error_get_description(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_error_get_kind(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_get_value(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_response_is_error(SKD_UNKNOW_TYPE);
 
-SKH_UNKNOW_TYPE sourcekitd_send_request(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_send_request_sync(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_send_request(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_send_request_sync(SKD_UNKNOW_TYPE);
 
-SKH_UNKNOW_TYPE sourcekitd_set_interrupted_connection_handler(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_set_notification_handler(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_set_interrupted_connection_handler(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_set_notification_handler(SKD_UNKNOW_TYPE);
 
 /**
  Ends the current SourceKit session.
@@ -126,32 +126,32 @@ SKH_UNKNOW_TYPE sourcekitd_set_notification_handler(SKH_UNKNOW_TYPE);
  */
 int sourcekitd_shutdown(void);
 
-SKH_UNKNOW_TYPE sourcekitd_uid_get_from_buf(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_uid_get_from_cstr(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_uid_get_length(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_uid_get_string_ptr(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_uid_get_from_buf(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_uid_get_from_cstr(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_uid_get_length(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_uid_get_string_ptr(SKD_UNKNOW_TYPE);
 
-SKH_UNKNOW_TYPE sourcekitd_variant_array_apply(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_apply_f(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_bool(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_count(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_int64(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_string(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_uid(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_array_get_value(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_bool_get_value(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_description_copy(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_description_dump(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_description_dump_filedesc(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_apply(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_apply_f(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_get_bool(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_get_int64(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_get_string(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_get_uid(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_dictionary_get_value(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_get_type(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_int64_get_value(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_string_get_length(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_string_get_ptr(SKH_UNKNOW_TYPE);
-SKH_UNKNOW_TYPE sourcekitd_variant_uid_get_value(SKH_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_apply(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_apply_f(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_bool(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_count(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_int64(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_string(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_uid(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_array_get_value(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_bool_get_value(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_description_copy(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_description_dump(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_description_dump_filedesc(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_apply(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_apply_f(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_get_bool(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_get_int64(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_get_string(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_get_uid(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_dictionary_get_value(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_get_type(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_int64_get_value(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_string_get_length(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_string_get_ptr(SKD_UNKNOW_TYPE);
+SKD_UNKNOW_TYPE sourcekitd_variant_uid_get_value(SKD_UNKNOW_TYPE);

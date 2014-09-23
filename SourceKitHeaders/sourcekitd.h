@@ -10,6 +10,75 @@
 
 #define SKD_UNKNOW_TYPE void*
 
+// There could be a way to get the data directly from the linked framework
+// instead of re-declaring these here...
+char *const SKDKeyResults = "key.results";
+char *const SKDKeyRequest = "key.request";
+char *const SKDKeyCompilerArgs = "key.compilerargs";
+char *const SKDKeyOffset = "key.offset";
+char *const SKDKeySourceFile = "key.sourcefile";
+char *const SKDKeySourceText = "key.sourcetext";
+char *const SKDKeyModuleName = "key.modulename";
+char *const SKDKeyNotification = "key.notification";
+char *const SKDKeyKeyword = "key.keyword";
+char *const SKDKeyName = "key.name";
+char *const SKDKeyEnableSyntaxMap = "key.enablesyntaxmap";
+char *const SKDKeyEnableDiagnostics = "key.enablediagnostics";
+char *const SKDKeyLength = "key.length";
+char *const SKDKeyKind = "key.kind";
+char *const SKDKeyUSR = "key.usr";
+char *const SKDKeyLine = "key.line";
+char *const SKDKeyColumn = "key.column";
+char *const SKDKeyReceiverUSR = "key.receiver_usr";
+char *const SKDKeyIsDynamic = "key.is_dynamic";
+char *const SKDKeyIsTestCandidate = "key.is_test_candidate";
+char *const SKDKeyDescription = "key.description";
+char *const SKDKeyTypeName = "key.typename";
+char *const SKDKeyRuntimeName = "key.runtime_name";
+char *const SKDKeySelectorName = "key.selector_name";
+char *const SKDKeyOverrides = "key.overrides";
+char *const SKDKeyDocBrief = "key.doc.brief";
+char *const SKDKeyAssociatedUSRs = "key.associated_usrs";
+char *const SKDKeyDocFullAsXML = "key.doc.full_as_xml";
+char *const SKDKeyAnnotatedDecl = "key.annotated_decl";
+char *const SKDKeyRelatedDecls = "key.related_decls";
+char *const SKDKeyContext = "key.context";
+char *const SKDKeyNumBytesToErase = "key.num_bytes_to_erase";
+char *const SKDKeyNotRecommended = "key.not_recommended";
+char *const SKDKeyFilePath = "key.filepath";
+char *const SKDKeyModuleInterfaceName = "key.module_interface_name";
+char *const SKDKeyHash = "key.hash";
+char *const SKDKeyRelated = "key.related";
+char *const SKDKeyInherits = "key.inherits";
+char *const SKDKeyConforms = "key.conforms";
+char *const SKDKeyExtends = "key.extends";
+char *const SKDKeyDependencies = "key.dependencies";
+char *const SKDKeyEntities = "key.entities";
+char *const SKDKeyDiagnostics = "key.diagnostics";
+char *const SKDKeySeverity = "key.severity";
+char *const SKDKeyRanges = "key.ranges";
+char *const SKDKeyFixits = "key.fixits";
+char *const SKDKeyAnnotations = "key.annotations";
+char *const SKDKeyDiagnosticStage = "key.diagnostic_stage";
+char *const SKDKeySyntaxMap = "key.syntaxmap";
+char *const SKDKeyIsSystem = "key.is_system";
+char *const SKDKeyEnableStructure = "key.enablesubstructure";
+char *const SKDKeySubStructure = "key.substructure";
+char *const SKDKeyNameOffset = "key.nameoffset";
+char *const SKDKeyNameLength = "key.namelength";
+char *const SKDKeyBodyOffset = "key.bodyoffset";
+char *const SKDKeyBodyLength = "key.bodylength";
+char *const SKDKeyAttributes = "key.attributes";
+char *const SKDKeyAttribute = "key.attribute";
+char *const SKDKeyInheritedTypes = "key.inheritedtypes";
+char *const SKDKeyFormatOptions = "key.editor.format.options";
+char *const SKDKeyIsUnavailable = "key.is_unavailable";
+char *const SKDKeyPlatform = "key.platform";
+char *const SKDKeyMessage = "key.message";
+char *const SKDKeyIntroduced = "key.introduced";
+char *const SKDKeyDeprecated = "key.deprecated";
+char *const SKDKeyObsoleted = "key.obsoleted";
+
 /**
  Does nothing... ?!
  */

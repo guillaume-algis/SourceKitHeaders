@@ -151,7 +151,13 @@ SKD_UNKNOW_TYPE sourcekitd_request_create_from_yaml(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_description_copy(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_description_dump(SKD_UNKNOW_TYPE);
 
-SKD_UNKNOW_TYPE sourcekitd_request_dictionary_create(SKD_UNKNOW_TYPE);
+/**
+ Creates a dictionary similarly to xpc_dictionary_create, but with sourcekit_uid_s structs as
+ keys.
+ The keys will then be converted to char*'s internally.
+ */
+xpc_object_t sourcekitd_request_dictionary_create(sourcekitd_uid_t *keys, const xpc_object_t *values, size_t count);
+
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_int64(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_string(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_stringbuf(SKD_UNKNOW_TYPE);

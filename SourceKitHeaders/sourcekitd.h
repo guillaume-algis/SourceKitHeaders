@@ -8,76 +8,96 @@
 
 #include <xpc/xpc.h>
 
-#define SKD_UNKNOW_TYPE void*
+#pragma mark - Identifiers
 
-// There could be a way to get the data directly from the linked framework
-// instead of re-declaring these here...
-char *const SKDKeyResults = "key.results";
-char *const SKDKeyRequest = "key.request";
-char *const SKDKeyCompilerArgs = "key.compilerargs";
-char *const SKDKeyOffset = "key.offset";
-char *const SKDKeySourceFile = "key.sourcefile";
-char *const SKDKeySourceText = "key.sourcetext";
-char *const SKDKeyModuleName = "key.modulename";
-char *const SKDKeyNotification = "key.notification";
-char *const SKDKeyKeyword = "key.keyword";
-char *const SKDKeyName = "key.name";
-char *const SKDKeyEnableSyntaxMap = "key.enablesyntaxmap";
-char *const SKDKeyEnableDiagnostics = "key.enablediagnostics";
-char *const SKDKeyLength = "key.length";
-char *const SKDKeyKind = "key.kind";
-char *const SKDKeyUSR = "key.usr";
-char *const SKDKeyLine = "key.line";
-char *const SKDKeyColumn = "key.column";
-char *const SKDKeyReceiverUSR = "key.receiver_usr";
-char *const SKDKeyIsDynamic = "key.is_dynamic";
-char *const SKDKeyIsTestCandidate = "key.is_test_candidate";
-char *const SKDKeyDescription = "key.description";
-char *const SKDKeyTypeName = "key.typename";
-char *const SKDKeyRuntimeName = "key.runtime_name";
-char *const SKDKeySelectorName = "key.selector_name";
-char *const SKDKeyOverrides = "key.overrides";
-char *const SKDKeyDocBrief = "key.doc.brief";
-char *const SKDKeyAssociatedUSRs = "key.associated_usrs";
-char *const SKDKeyDocFullAsXML = "key.doc.full_as_xml";
-char *const SKDKeyAnnotatedDecl = "key.annotated_decl";
-char *const SKDKeyRelatedDecls = "key.related_decls";
-char *const SKDKeyContext = "key.context";
-char *const SKDKeyNumBytesToErase = "key.num_bytes_to_erase";
-char *const SKDKeyNotRecommended = "key.not_recommended";
-char *const SKDKeyFilePath = "key.filepath";
-char *const SKDKeyModuleInterfaceName = "key.module_interface_name";
-char *const SKDKeyHash = "key.hash";
-char *const SKDKeyRelated = "key.related";
-char *const SKDKeyInherits = "key.inherits";
-char *const SKDKeyConforms = "key.conforms";
-char *const SKDKeyExtends = "key.extends";
-char *const SKDKeyDependencies = "key.dependencies";
-char *const SKDKeyEntities = "key.entities";
-char *const SKDKeyDiagnostics = "key.diagnostics";
-char *const SKDKeySeverity = "key.severity";
-char *const SKDKeyRanges = "key.ranges";
-char *const SKDKeyFixits = "key.fixits";
-char *const SKDKeyAnnotations = "key.annotations";
-char *const SKDKeyDiagnosticStage = "key.diagnostic_stage";
-char *const SKDKeySyntaxMap = "key.syntaxmap";
-char *const SKDKeyIsSystem = "key.is_system";
-char *const SKDKeyEnableStructure = "key.enablesubstructure";
-char *const SKDKeySubStructure = "key.substructure";
-char *const SKDKeyNameOffset = "key.nameoffset";
-char *const SKDKeyNameLength = "key.namelength";
-char *const SKDKeyBodyOffset = "key.bodyoffset";
-char *const SKDKeyBodyLength = "key.bodylength";
-char *const SKDKeyAttributes = "key.attributes";
-char *const SKDKeyAttribute = "key.attribute";
-char *const SKDKeyInheritedTypes = "key.inheritedtypes";
-char *const SKDKeyFormatOptions = "key.editor.format.options";
-char *const SKDKeyIsUnavailable = "key.is_unavailable";
-char *const SKDKeyPlatform = "key.platform";
-char *const SKDKeyMessage = "key.message";
-char *const SKDKeyIntroduced = "key.introduced";
-char *const SKDKeyDeprecated = "key.deprecated";
-char *const SKDKeyObsoleted = "key.obsoleted";
+/**
+ Represent an sourcekit unique identifier used in requests.
+ 
+ The struct content is determined from observing the memory of a Playground while running.
+ This is *at best* very fragile.
+ */
+struct sourcekitd_uid_s {
+    int32_t size;
+    int32_t _reserved1; // junk ?
+    int64_t _reserved2; // always 0x0 ?
+    const char name[];
+};
+typedef struct sourcekitd_uid_s * sourcekitd_uid_t;
+
+#define SKD_UID_DECL(identifier, value) \
+struct sourcekitd_uid_s _skd_key ## identifier = {.size = strlen(value), .name = value}; \
+sourcekitd_uid_t SKDKey ## identifier = &_skd_key ## identifier;
+
+SKD_UID_DECL(Results, "key.results")
+SKD_UID_DECL(Request, "key.request")
+SKD_UID_DECL(CompilerArgs, "key.compilerargs")
+SKD_UID_DECL(Offset, "key.offset")
+SKD_UID_DECL(SourceFile, "key.sourcefile")
+SKD_UID_DECL(SourceText, "key.sourcetext")
+SKD_UID_DECL(ModuleName, "key.modulename")
+SKD_UID_DECL(Notification, "key.notification")
+SKD_UID_DECL(Keyword, "key.keyword")
+SKD_UID_DECL(Name, "key.name")
+SKD_UID_DECL(EnableSyntaxMap, "key.enablesyntaxmap")
+SKD_UID_DECL(EnableDiagnostics, "key.enablediagnostics")
+SKD_UID_DECL(Length, "key.length")
+SKD_UID_DECL(Kind, "key.kind")
+SKD_UID_DECL(USR, "key.usr")
+SKD_UID_DECL(Line, "key.line")
+SKD_UID_DECL(Column, "key.column")
+SKD_UID_DECL(ReceiverUSR, "key.receiver_usr")
+SKD_UID_DECL(IsDynamic, "key.is_dynamic")
+SKD_UID_DECL(IsTestCandidate, "key.is_test_candidate")
+SKD_UID_DECL(Description, "key.description")
+SKD_UID_DECL(TypeName, "key.typename")
+SKD_UID_DECL(RuntimeName, "key.runtime_name")
+SKD_UID_DECL(SelectorName, "key.selector_name")
+SKD_UID_DECL(Overrides, "key.overrides")
+SKD_UID_DECL(DocBrief, "key.doc.brief")
+SKD_UID_DECL(AssociatedUSRs, "key.associated_usrs")
+SKD_UID_DECL(DocFullAsXML, "key.doc.full_as_xml")
+SKD_UID_DECL(AnnotatedDecl, "key.annotated_decl")
+SKD_UID_DECL(RelatedDecls, "key.related_decls")
+SKD_UID_DECL(Context, "key.context")
+SKD_UID_DECL(NumBytesToErase, "key.num_bytes_to_erase")
+SKD_UID_DECL(NotRecommended, "key.not_recommended")
+SKD_UID_DECL(FilePath, "key.filepath")
+SKD_UID_DECL(ModuleInterfaceName, "key.module_interface_name")
+SKD_UID_DECL(Hash, "key.hash")
+SKD_UID_DECL(Related, "key.related")
+SKD_UID_DECL(Inherits, "key.inherits")
+SKD_UID_DECL(Conforms, "key.conforms")
+SKD_UID_DECL(Extends, "key.extends")
+SKD_UID_DECL(Dependencies, "key.dependencies")
+SKD_UID_DECL(Entities, "key.entities")
+SKD_UID_DECL(Diagnostics, "key.diagnostics")
+SKD_UID_DECL(Severity, "key.severity")
+SKD_UID_DECL(Ranges, "key.ranges")
+SKD_UID_DECL(Fixits, "key.fixits")
+SKD_UID_DECL(Annotations, "key.annotations")
+SKD_UID_DECL(DiagnosticStage, "key.diagnostic_stage")
+SKD_UID_DECL(SyntaxMap, "key.syntaxmap")
+SKD_UID_DECL(IsSystem, "key.is_system")
+SKD_UID_DECL(EnableStructure, "key.enablesubstructure")
+SKD_UID_DECL(SubStructure, "key.substructure")
+SKD_UID_DECL(NameOffset, "key.nameoffset")
+SKD_UID_DECL(NameLength, "key.namelength")
+SKD_UID_DECL(BodyOffset, "key.bodyoffset")
+SKD_UID_DECL(BodyLength, "key.bodylength")
+SKD_UID_DECL(Attributes, "key.attributes")
+SKD_UID_DECL(Attribute, "key.attribute")
+SKD_UID_DECL(InheritedTypes, "key.inheritedtypes")
+SKD_UID_DECL(FormatOptions, "key.editor.format.options")
+SKD_UID_DECL(IsUnavailable, "key.is_unavailable")
+SKD_UID_DECL(Platform, "key.platform")
+SKD_UID_DECL(Message, "key.message")
+SKD_UID_DECL(Introduced, "key.introduced")
+SKD_UID_DECL(Deprecated, "key.deprecated")
+SKD_UID_DECL(Obsoleted, "key.obsoleted")
+
+#pragma mark - C API
+
+#define SKD_UNKNOW_TYPE void*
 
 /**
  Does nothing... ?!

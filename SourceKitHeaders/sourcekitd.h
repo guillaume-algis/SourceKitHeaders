@@ -161,7 +161,13 @@ xpc_object_t sourcekitd_request_dictionary_create(sourcekitd_uid_t *keys, const 
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_int64(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_string(SKD_UNKNOW_TYPE);
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_stringbuf(SKD_UNKNOW_TYPE);
-SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_uid(SKD_UNKNOW_TYPE);
+
+/**
+ Inserts a int64_t primitive in a dictionary similarly to xpc_dictionary_set_uint64, but
+ using a sourcekit_uid_s struct as key.
+ */
+void sourcekitd_request_dictionary_set_uid(xpc_object_t xdict, sourcekitd_uid_t key, uint64_t value);
+
 SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_value(SKD_UNKNOW_TYPE);
 
 /**

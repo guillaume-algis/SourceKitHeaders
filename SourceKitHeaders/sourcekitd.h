@@ -175,7 +175,11 @@ void sourcekitd_request_dictionary_set_string(xpc_object_t xdict, sourcekitd_uid
  */
 void sourcekitd_request_dictionary_set_uid(xpc_object_t xdict, sourcekitd_uid_t key, uint64_t value);
 
-SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_value(SKD_UNKNOW_TYPE);
+/**
+ Inserts a xpc object in a dictionary similarly to xpc_dictionary_set_value, but
+ using a sourcekit_uid_s struct as key.
+ */
+void sourcekitd_request_dictionary_set_value(xpc_object_t xdict, sourcekitd_uid_t key, xpc_object_t value);
 
 /**
  Logicless wrapper around xpc_int64_create.

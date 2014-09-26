@@ -130,10 +130,7 @@ void sourcekitd_request_array_set_int64(xpc_object_t xarray, size_t index, int64
  */
 void sourcekitd_request_array_set_string(xpc_object_t xarray, size_t index, const char *string);
 
-/**
- Incomplete header. Do not use.
- */
-void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKD_UNKNOW_TYPE);
+// void sourcekitd_request_array_set_stringbuf(xpc_object_t xarray, size_t index, SKD_UNKNOW_TYPE);
 
 /**
  Logicless wrapper around xpc_array_set_uint64.
@@ -170,7 +167,7 @@ void sourcekitd_request_dictionary_set_int64(xpc_object_t xdict, sourcekitd_uid_
  */
 void sourcekitd_request_dictionary_set_string(xpc_object_t xdict, sourcekitd_uid_t key, const char *string);
 
-SKD_UNKNOW_TYPE sourcekitd_request_dictionary_set_stringbuf(SKD_UNKNOW_TYPE);
+// void sourcekitd_request_dictionary_set_stringbuf(xpc_object_t xdict, sourcekitd_uid_t key, SKD_UNKNOW_TYPE);
 
 /**
  Inserts a int64_t primitive in a dictionary similarly to xpc_dictionary_set_uint64, but
